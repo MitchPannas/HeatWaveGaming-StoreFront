@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;script-src 'self' http://onlineerp.solution.quebec 'unsafe-inline' 'unsafe-eval'; ">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	
+        <script src="js/js.cookie.js"></script>
+        <script src="js/scripts.js"></script>
+        <title>HeatWave Gaming</title>
+    </head>
+    <body onload="checklogin()">
+	<div class="outer">
+		<!--Code for the header-->
+		<header>
+		<img src="img/header.jpg" alt="header">
+		</header>
+		
+		<!--Code for the nav and the search bar-->
+		<nav>
+			<ul>
+				<!--Possibly make these drop down lists unless we dont have enough buttons-->
+				<!--Example of dropdown would be genre>fps>mmo>rpg etc
+				For price could be <20 <30 <30 etc make it easy to find cheap games
+				Poissbly add one for on sale and make like 3 games on sale-->
+				<li><a class="active" href="index.html">Home</a></li>
+				<li><a href="#">Price</a>
+					<ul>
+						<li><a href="#" id="utwent">Under $20</a></li>
+						<li><a href="#" id="ufifty">Under $50</a></li>
+						<li><a href="#" id="ofifty">Over $50</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#">Genre</a>
+					<ul>
+						<li><a href="#" id="fps">FPS</a></li>
+						<li><a href="#" id="mmo">MMO</a></li>
+						<li><a href="#" id="racing">Racing</a></li>
+						<li><a href="#" id="adventure">Adventure</a></li>
+						<li><a href="#" id="sandbox">Sandbox</a></li>
+						<li><a href="#" id="sports">Sports</a></li>
+						<li><a href="#" id="action">Action</a></li>
+						<li><a href="#" id="rts">RTS</a></li>
+						<li><a href="#" id="fighter">Fighter</a></li>
+						<li><a href="#" id="rpg">RPG</a></li>
+					</ul>
+				</li>
+				<li><a href="#" id="aboutus">About Us</a></li>
+				<li><a href="#" id="help">Help</a></li>
+				<li><a href="#">Cart</a>
+                    <ul>
+                        <div id="cart">
+                            <li><a href="#" onclick="clearcart()">Clear cart</a></li>
+                        </div>
+                    </ul>
+                </li>
+				<!--Code for the search bar-->
+                <form class='search' name='searchBar' onsubmit="return searchproduct();">
+                    <label>Search 
+                        <input type='text' id='search' name='searchBar' placeholder='Enter product here'></input>
+                    </label>
+                    <input type='submit' id='search-submit' value='search'></input>
+                </form>
+			</ul>
+		</nav>
+		
+		<div class="login-form" id="login-form">
+            <div id="login-replace">
+                Username: <input type="text" id="username">
+                Password: <input type="password" id="password">
+                <input type="submit" value="Login" id="login-submit" onclick="login()">
+                <input type="submit" value="Register" id="register-submit" onclick="register()">
+            </div>
+            <div id="login-data"></div>
+		</div>
+		
+		<!--Code for the section that will contain the products-->
+		<section class="mainCont" id="mainCont">
+			<div id="search-data">
+				
+			</div>
+		</section>
+
+
+		<footer>
+			<p>Created by Lachlan + Mitchell</p>
+            <p> <a href="sitemap.xml">Sitemap</a></p>
+		</footer>
+	</div>
+	
+<!--    <script src="javascript/global.js"></script>		-->
+</body>
+</html>
